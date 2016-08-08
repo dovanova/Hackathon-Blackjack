@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="Blackjack_styles.css">
+
+		<script src="Card.js"></script>
+
+		<title>BLACKJACK</title>
+
+		 <script>
+
+		 	var money;
+		 	var moneyDisplay;
+		 	var bet;
+		 	var betInput;
+		 	var message;
+
+		 	var standButton, hitButton, newGameButton;
+
+			var setup = function(){
+				message = document.getElementById("message");
+    			standButton = document.getElementById("standButton");
+    			hitButton = document.getElementById("hitButton");
+    			newGameButton = document.getElementById("newGameButton");
+    			moneyDisplay = document.getElementById("money");
+    			money = prompt("How much money do you have?");
+    			moneyDisplay.innerHTML = "$" + money;
+    			betInput = document.getElementById("bet");
+    			betInput.value = 10;
+    			betInput.disabled = false;
+    			standButton.disabled = true;
+    			hitButton.disabled = true;
+    			newGameButton.disabled = false;
+			}
+
+
+		onload=setup;
+		cards();
+		
+		</script>	 	
+
+	</head>
+	<body>
+		<table align="center" cellpadding="0" cellspacing="10" border="0;">
+		<tbody>
+		<tr><td>
+		<div id="container">
+
+			<div id="dealer">Dealer's Hand:</div>
+			<div id="dealer1"></div>
+			<div id="dealer2"></div>
+			<div id="dealer3"></div>
+			<div id="dealer4"></div>
+			<div id="dealer5"></div>
+
+			<div id="player">Player's Hand:</div>
+			<div id="player1"></div>
+			<div id="player2"></div>
+			<div id="player3"></div>
+			<div id="player4"></div>
+			<div id="player5"></div>
+
+			<div id="info">Player Bank:</div>
+			<div id="money"></div>
+			<div id="betamt">
+				<span style="color:#9F9">Your bet:</span>&nbsp; <input type=text size=6 id="bet">
+			</div>
+
+		</div>
+
+		</td></tr>
+		<tr><td align=center>
+			<input type=button id="hitButton" value="Hit" onclick="hit()" disabled>
+			<input type=button id="standButton" value="Stay" onclick="stand()" disabled>
+			<input type=button id="newGameButton" value="New Game" onClick="startGame()">
+		</td></tr>
+
+		<tr><td align=center>
+		<span id="message" style="color:#600; font-weight:bold">River North Casino ~ Blackjack<br>Press "New Game" to Begin.</span>
+		</td></tr>
+		</tbody>
+		</table>
+	</body>
+</html>
